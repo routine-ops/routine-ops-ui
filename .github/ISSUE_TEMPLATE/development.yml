@@ -1,0 +1,68 @@
+name: "📝 Development Task"
+description: "Create a new development task, bug fix, or feature request for the routine-ops UI frontend."
+title: "[routine-ops-ui] ${{ inputs.Summary }}"
+labels:
+  - "Component: routine-ops-ui"
+  - "type: enhancement"
+projects:
+  - "routine-ops/2"       # replace 2 with your classic Project’s numeric ID
+assignees:
+  - "satyavishal"         # optional default assignee(s)
+
+body:
+ # 1) At least one interactive field must follow the Markdown block
+  - type: dropdown
+    id: Component
+    attributes:
+      label: "Component"
+      description: "Select the area of the frontend codebase"
+      options:
+        - "routine-ops-ui"
+        - "routine-ops-backend"
+        - "routine-ops-plan-engine"
+      default: 0
+
+  - type: input
+    id: Summary
+    attributes:
+      label: "Short summary"
+      description: "One-line summary of the issue or feature"
+      placeholder: "e.g. Add dark mode toggle"
+
+  - type: textarea
+    id: Details
+    attributes:
+      label: "Detailed description"
+      description: "Provide context, expected behavior, and implementation notes"
+      placeholder: "Explain what needs to be done and why."
+
+  - type: dropdown
+    id: Priority
+    attributes:
+      label: "Priority"
+      description: "Impact level of this task"
+      options:
+        - "high"
+        - "medium"
+        - "low"
+      default: 1
+
+  - type: dropdown
+    id: Estimate
+    attributes:
+      label: "Estimate (in days)"
+      description: "Rough estimate of time to complete"
+      options:
+        - "1"
+        - "2"
+        - "3"
+        - "5"
+        - "8"
+      default: 1
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: "Acceptance Criteria"
+      description: "Define how you’ll know this is done"
+      placeholder: "List testable criteria, e.g., unit tests, UI behavior"
